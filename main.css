@@ -1,0 +1,41 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+/* This is the main navigation bar */
+.navigationBar {
+	background-color: #3640CE;
+	color: white;
+	padding: 30px 30px 30px 30px;
+	position: sticky;
+	top: 0;
+	
+}
+.navigationBarButton {
+	background-color: white;
+	color: black;
+	width: 5em;
+	text-align: center;
+	transition: .4s;
+}
+.navigationBarButton:hover {
+	background-color: darkblue;
+	color: white;
+	width: 5em;
+	text-align: center;
+	transition: .4s;
+}
+.carouselDiv {
+	border-bottom: 1em solid black;
+	border-top: 1em solid black;
+	background-color: black;
+	width: 100%;
+
+
+}
+.carouselImage {
+	height: 30em;
+    display:block;
+    margin:auto;
+
+}
