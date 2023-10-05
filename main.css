@@ -2,11 +2,14 @@ html, body {
     margin: 0;
     padding: 0;
 }
+.textCenter {
+	text-align: center;
+}
 /* This is the main navigation bar */
 .navigationBar {
 	background-color: #3640CE;
 	color: white;
-	padding: 30px 30px 30px 30px;
+	padding: 2em;
 	position: sticky;
 	top: 0;
 	
@@ -17,6 +20,7 @@ html, body {
 	width: 5em;
 	text-align: center;
 	transition: .4s;
+	padding: .5em;
 }
 .navigationBarButton:hover {
 	background-color: darkblue;
@@ -38,4 +42,12 @@ html, body {
     display:block;
     margin:auto;
 
+}
+.siteBottom {
+	background-color: black;
+	color: white;
+	text-align: center;
+	margin-top: 10em;
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
 }
