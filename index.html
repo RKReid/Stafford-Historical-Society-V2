@@ -1,19 +1,45 @@
 <html>
 
 	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 		<link rel="stylesheet" href="main.css">
 		<title>Test</title>
 	</head>
 
 	<body>
 		<div class="navigationBar">
-			<img style="position: absolute; top: .9em; height: 3em;" src="images/logo.png" alt="Logo">
-			<a style="margin-left: 6em;" class="navigationBarButton" href="index.html">Home</a>
-			<a class="navigationBarButton" href="index.html">About</a>
-			<a class="navigationBarButton" href="index.html">Collection</a>
-			<a class="navigationBarButton" href="index.html">Volunteer</a>
-			<a class="navigationBarButton" href="index.html">Contact</a>
-			<a class="navigationBarButton" href="index.html">Donate</a>
+			<img style="position: absolute; top: .9em; height: 70%;" src="images/logo.png" alt="Logo">
+			<a style="margin-left: 9em;" class="dropdown" href="index.html">Home</a>
+		
+			<div class="dropdown">About
+			  <div class="dropdown-content">
+				<a href="#">Our History</a>
+				<a href="#">Stafford's History</a>
+				<a href="#">Members</a>
+			  </div>
+			</div>
+			
+			<div class="dropdown">Collection
+			  <div class="dropdown-content">
+				<a href="#">Pictures</a>
+				<a href="#">Films</a>
+				<a href="#">Cassettes</a>
+			  </div>
+			</div>
+			
+			<a class="dropdown" href="index.html">Volunteer</a>
+
+			<div class="dropdown">Contact
+			  <div class="dropdown-content">
+				<a href="#">Contact Historical Society</a>
+				<a href="#">Contact Website Developer</a>
+				<a href="https://www.facebook.com/StaffordCTHistoricalSociety/" target="_blank">Historical Society Facebook</a>
+			  </div>
+			</div>
+			
+			
+			<a class="dropdownDonate" href="index.html">Donate</a>
 		</div>
 	<div class="carouselDiv">	
 	<img class="carouselImage" src="images/Stafford_Historical_Society_-_Stafford_Springs,_Connecticut_-_DSC04141.jpg">
