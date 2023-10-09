@@ -1,25 +1,79 @@
 <html>
 
 	<head>
+		<div w3-include-html="pageparts/headcode.htm"></div>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="main.css">
 		<title>Stafford Historical Society</title>
 	</head>
 	<script src="pageparts/includeHTML.js"></script>
 	<body>
-		<div w3-include-html="pageparts/navigationBar.htm"></div>
-		<div w3-include-html="pageparts/carousel.htm"></div>
+		<div class="navigationBar"><div w3-include-html="pageparts/navigationBar.htm"></div></div>
+		
+		<div class="carousel-container">	
+		<div class="carousel-slide"><img src="images/Stafford_Historical_Society_-_Stafford_Springs,_Connecticut_-_DSC04141.jpg"></div>
+		<div class="carousel-slide"><img src="images/Stafford_Springs_station_postcard.jpg"></div>
+		</div>
+		<div class="centerFlexbox"><span class="imgCarouselButton" id="prevBtn">Previous</span><span class="imgCarouselButton" id="nextBtn">Next</span></div>
+
+
 	<!-- Start of body -->
 	
-		<h1 class="textCenter">Archives Information</h1>
-		<pre class="textCenter">
- The Stafford Historical Society is about to begin the digitization of our photograph collection.   We are also digitizing some archives, particularly scrapbooks, as well.   We are very fortunate to have many scrapbooks of newspaper articles relating to Stafford ranging in date from the 1830s to the 1950s.   These scrapbooks are very fragile and can't be used every time someone is researching a subject relating to Stafford so having them digitized and searchable offers an exciting opportunity to quickly access information from the past.  
+		<h1 class="textCenter">Archives information</h1>
+		<p class="textCenter">The Stafford Historical Society is about to begin the digitization of our photograph collection.   We are also digitizing some archives, particularly scrapbooks, as well.   We are very fortunate to have many scrapbooks of newspaper articles relating to Stafford ranging in date from the 1830s to the 1950s.   These scrapbooks are very fragile and can't be used every time someone is researching a subject relating to Stafford so having them digitized and searchable offers an exciting opportunity to quickly access information from the past.<br>The first scrapbook that we have digitized was put together by an unknown person and the articles range in date from 1833 - 1880.   It is not known what newspapers the articles came from but, given the dates of the articles, it was probably the Tolland County Press and/or the Stafford News Letter.   Although the digitization was done with OCR not all words could be read so not finding a word by doing a search does not mean that the word is not present in the scrapbook.   </p>
 
-The first scrapbook that we have digitized was put together by an unknown person and the articles range in date from 1833 - 1880.   It is not known what newspapers the articles came from but, given the dates of the articles, it was probably the Tolland County Press and/or the Stafford News Letter.   Although the digitization was done with OCR not all words could be read so not finding a word by doing a search does not mean that the word is not present in the scrapbook.  
-</pre>		
+		<br><br>
+		<div style="  display: flex; justify-content: center;">
+	<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FStaffordCTHistoricalSociety%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+	</div>
+	
 	<!-- End of body -->
 	<div w3-include-html="pageparts/bottomBar.htm"></div>
 	<script>includeHTML();</script>	
-	<script src="pageparts/carouselScript.js"></script>
+	<script>
+	
+	document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentSlide = getRandomSlideIndex();
+
+    // Function to generate a random slide index
+    function getRandomSlideIndex() {
+        return Math.floor(Math.random() * slides.length);
+    }
+
+    // Function to show the current slide
+    function showSlide() {
+        slides.forEach((slide, index) => {
+            if (index === currentSlide) {
+                slide.style.display = 'block';
+            } else {
+                slide.style.display = 'none';
+            }
+        });
+    }
+
+    // Function to show the next slide
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide();
+    }
+
+    // Function to show the previous slide
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide();
+    }
+
+    // Initialize the carousel by showing a random slide
+    showSlide();
+
+    // Event listeners for the previous and next buttons
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+});
+
+	</script>
 	</body>
 </html>
