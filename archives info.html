@@ -1,23 +1,25 @@
 <html>
 
 	<head>
-	<object src="pageparts/headcode.htm"></object>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="main.css">
+		<title>Stafford Historical Society</title>
 	</head>
-	
+	<script src="pageparts/includeHTML.js"></script>
 	<body>
-		<object src="pageparts/navigationBar.htm"></object>
-		<object src="pageparts/carousel.htm">
-	<!-- Begining of body -->
+		<div w3-include-html="pageparts/navigationBar.htm"></div>
+		<div w3-include-html="pageparts/carousel.htm"></div>
+	<!-- Start of body -->
 	
 		<h1 class="textCenter">Archives Information</h1>
 		<pre class="textCenter">
  The Stafford Historical Society is about to begin the digitization of our photograph collection.   We are also digitizing some archives, particularly scrapbooks, as well.   We are very fortunate to have many scrapbooks of newspaper articles relating to Stafford ranging in date from the 1830s to the 1950s.   These scrapbooks are very fragile and can't be used every time someone is researching a subject relating to Stafford so having them digitized and searchable offers an exciting opportunity to quickly access information from the past.  
 
 The first scrapbook that we have digitized was put together by an unknown person and the articles range in date from 1833 - 1880.   It is not known what newspapers the articles came from but, given the dates of the articles, it was probably the Tolland County Press and/or the Stafford News Letter.   Although the digitization was done with OCR not all words could be read so not finding a word by doing a search does not mean that the word is not present in the scrapbook.  
-</pre>	
-	
+</pre>		
 	<!-- End of body -->
-	<object src="pageparts/bottomBox.htm"></object>
+	<div w3-include-html="pageparts/bottomBar.htm"></div>
+	<script>includeHTML();</script>	
 	<script src="pageparts/carouselScript.js"></script>
 	</body>
 </html>
