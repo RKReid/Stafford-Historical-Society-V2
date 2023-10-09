@@ -6,6 +6,35 @@
 		<link rel="stylesheet" href="main.css">
 		<title>Stafford Historical Society</title>
 	</head>
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain attribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
 	
 	<body>
 	
@@ -63,10 +92,12 @@
 	<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FStaffordCTHistoricalSociety%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
 	</div>
 	
-	
-	<div class="siteBottom">
-	<p>This site was developed by Rob Reid, for his Eagle Project. It is also maintained by him, so if you have any questions or conecerns, please contact him at <span style="color: blue;">robpro1300@gmail.com</span><br>This site would not be possible without the support of the Stafford Historical Society members and without the help of many other people!
-	</div>
+	<div w3-include-html="bottomBar.html"></div>
+
+<script>
+includeHTML();
+</script>
+
 	
 	<script>
     const slides = document.querySelectorAll('.carousel-slide');
