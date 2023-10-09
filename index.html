@@ -1,88 +1,15 @@
 <html>
 
 	<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="main.css">
 		<title>Stafford Historical Society</title>
 	</head>
-<script>
-function includeHTML() {
-  var z, i, elmnt, file, xhttp;
-  /*loop through a collection of all HTML elements:*/
-  z = document.getElementsByTagName("*");
-  for (i = 0; i < z.length; i++) {
-    elmnt = z[i];
-    /*search for elements with a certain attribute:*/
-    file = elmnt.getAttribute("w3-include-html");
-    if (file) {
-      /*make an HTTP request using the attribute value as the file name:*/
-      xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4) {
-          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-          /*remove the attribute, and call this function once more:*/
-          elmnt.removeAttribute("w3-include-html");
-          includeHTML();
-        }
-      }      
-      xhttp.open("GET", file, true);
-      xhttp.send();
-      /*exit the function:*/
-      return;
-    }
-  }
-};
-</script>
-	
+	<script src="pageparts/includeHTML.js"></script>
 	<body>
-	
-		<div class="navigationBar">
-			<a href="index.html"><img style="display: inline-block; height: 11%; vertical-align: middle; " src="images/logo.png" alt="Logo"></a>
-			<a style="margin-left: 9em;" class="dropdown" href="index.html">Home</a>
-		
-			<div class="dropdown">About
-			  <div class="dropdown-content">
-				<a href="#"><i>Our History</i></a>
-				<a href="#"><i>Stafford's History</i></a>
-				<a href="#"><i>Members</i></a>
-			  </div>
-			</div>
-			
-			<div class="dropdown">Collection
-			  <div class="dropdown-content">
-				<a href="#"><i>Pictures</i></a>
-				<a href="#"><i>Films</i></a>
-				<a href="#"><i>Cassettes</i></a>
-			  </div>
-			</div>
-			
-			<a class="dropdown" href="index.html">Volunteer</a>
-
-			<div class="dropdown">Contact
-			  <div class="dropdown-content">
-				<a href="#">Contact Historical Society</a>
-				<a href="#">Contact Website Developer</a>
-				<a href="https://www.facebook.com/StaffordCTHistoricalSociety/" target="_blank">Historical Society Facebook</a>
-			  </div>
-			</div>
-			
-			
-			<a class="dropdownDonate" href="index.html">Donate</a>
-			
-			<a href="https://www.facebook.com/StaffordCTHistoricalSociety/" target="_blank"><img style="display: inline-block; height: 5%; float: right; margin-left: .5%;" src="images/Facebook_icon_2013.svg"></a>
-			<a href="" target="_blank"><img style="display: inline-block; height: 5%; float: right; margin-left: .5%;" src="images/YouTube_social_white_square_(2017).svg"></a>
-		</div>
-	<div class="carousel-container">	
-	
-	<div class="carousel-slide"><img src="images/Stafford_Historical_Society_-_Stafford_Springs,_Connecticut_-_DSC04141.jpg"></div>
-	<div class="carousel-slide"><img src="images/Stafford_Springs_station_postcard.jpg"></div>
-	
-	
-	</div><br>
-		<div class="centerFlexbox"><span class="imgCarouselButton" id="prevBtn">Previous</span><span class="imgCarouselButton" id="nextBtn">Next</span></div>
-
+		<div w3-include-html="pageparts/navigationBar.htm"></div>
+		<div w3-include-html="pageparts/carousel.htm"></div>
+	<!-- Start of body -->
 	
 		<h1 class="textCenter">Welcome to our Website!</h1>
 		<p class="textCenter">Our purpose for this website is to share our collection and provide a means for donations.<br>Stafford, Connecticut is the focus of our collection and research. Stafford has a rich and long over 300 year history. </p>
@@ -92,56 +19,9 @@ function includeHTML() {
 	<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FStaffordCTHistoricalSociety%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
 	</div>
 	
+	<!-- End of body -->
 	<div w3-include-html="pageparts/bottomBar.htm"></div>
-
-<script>
-includeHTML();
-</script>
-
-	
-	<script>
-    const slides = document.querySelectorAll('.carousel-slide');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    let currentSlide = getRandomSlideIndex();
-
-    // Function to generate a random slide index
-    function getRandomSlideIndex() {
-        return Math.floor(Math.random() * slides.length);
-    }
-
-    // Function to show the current slide
-    function showSlide() {
-        slides.forEach((slide, index) => {
-            if (index === currentSlide) {
-                slide.style.display = 'block';
-            } else {
-                slide.style.display = 'none';
-            }
-        });
-    }
-
-    // Function to show the next slide
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide();
-    }
-
-    // Function to show the previous slide
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide();
-    }
-
-    // Initialize the carousel by showing a random slide
-    showSlide();
-
-    // Event listeners for the previous and next buttons
-    prevBtn.addEventListener('click', prevSlide);
-    nextBtn.addEventListener('click', nextSlide);
-</script>
-
+	<script>includeHTML();</script>	
+	<script src="pageparts/carouselScript.js"></script>
 	</body>
-
-
 </html>
