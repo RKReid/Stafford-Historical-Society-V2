@@ -133,3 +133,21 @@ margin: .1em;
 	list-style-type: circle;
 
 }
+.printArea {
+	background-color: white;
+	width: 8in;
+	height: 6in;
+	max-width: 90%;
+}
+.printButton {
+	color: white;
+	background-color: blue;
+	padding: 3em;	
+	transition: .3s;
+	width: 5em;
+	height: 3em;
+}
+.printButton:hover {
+	background-color: grey;
+	transition: .3s;
+}

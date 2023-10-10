@@ -1,0 +1,121 @@
+<html>
+
+	<head>
+		<div w3-include-html="pageparts/headcode.htm"></div>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="main.css">
+		<title>Stafford Historical Society</title>
+	</head>
+	<script src="pageparts/includeHTML.js"></script>
+	<body>
+		<div class="navigationBar"><div w3-include-html="pageparts/navigationBar.htm"></div></div>
+		
+		<div class="carousel-container">	
+		<div class="carousel-slide"><img src="images/Stafford_Historical_Society_-_Stafford_Springs,_Connecticut_-_DSC04141.jpg"></div>
+		<div class="carousel-slide"><img src="images/Stafford_Springs_station_postcard.jpg"></div>
+		</div>
+		<div class="centerFlexbox"><span class="imgCarouselButton" id="prevBtn">Previous</span><span class="imgCarouselButton" id="nextBtn">Next</span></div>
+
+
+	<!-- Start of body -->
+	
+		<h1 class="textCenter">Membership</h1>
+		<div class="centerFlexbox">
+		<p class="textCenterv2">We are always looking for new members.   Please consider joining us and taking part in preserving Stafford's history.<br><br>To become a member of the Stafford Historical Society, please print out and mail this application to The Stafford Historical Society, 5 Spring Street, Stafford Springs, CT 06076.  Please make checks payable to Stafford Historical Society.  We look forward to meeting you.</p>
+		<br></div>
+		
+
+		<div class="centerFlexbox"><div class="printButton textCenter" href="javascript:void(0);" onclick="printPageArea('printableArea')">Print</div></div>
+
+		<div class="centerFlexbox">
+			<div class="printArea centerFlexbox" id="printableArea">
+			<pre>
+The Stafford Historical Society
+5 Spring Street
+Stafford Springs, CT 06076
+
+Name___________________________________________________
+
+Address _________________________________________________
+
+City/Town _______________________________________________
+
+State ________________ Zip Code ___________________________
+
+Telephone _______________________________________________
+
+Email:___________________________________________________
+
+Today's Date __________________
+
+ 
+
+Types of Memberships
+
+Individual ..................................................$10.00
+Family ......................................................$16.00
+Business/Industry ...........................................$50.00
+Lifetime ...................................................$100.00
+			</pre>
+			</div>
+		</div>
+	
+	<!-- End of body -->
+	<div w3-include-html="pageparts/bottomBar.htm"></div>
+	<script>includeHTML();</script>	
+	<script>
+	
+	document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentSlide = getRandomSlideIndex();
+
+    // Function to generate a random slide index
+    function getRandomSlideIndex() {
+        return Math.floor(Math.random() * slides.length);
+    }
+
+    // Function to show the current slide
+    function showSlide() {
+        slides.forEach((slide, index) => {
+            if (index === currentSlide) {
+                slide.style.display = 'block';
+            } else {
+                slide.style.display = 'none';
+            }
+        });
+    }
+
+    // Function to show the next slide
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide();
+    }
+
+    // Function to show the previous slide
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide();
+    }
+
+    // Initialize the carousel by showing a random slide
+    showSlide();
+
+    // Event listeners for the previous and next buttons
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+});
+
+	</script>
+			<script>
+			function printPageArea(areaID){
+			var printContent = document.getElementById(areaID).innerHTML;
+			var originalContent = document.body.innerHTML;
+			document.body.innerHTML = printContent;
+			window.print();
+			document.body.innerHTML = originalContent;
+		}
+</script>
+	</body>
+</html>
