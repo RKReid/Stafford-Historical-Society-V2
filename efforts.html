@@ -1,0 +1,86 @@
+<html>
+
+	<head>
+		<div w3-include-html="pageparts/headcode.htm"></div>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="main.css">
+		<title>Stafford Historical Society</title>
+	</head>
+	<script src="pageparts/includeHTML.js"></script>
+	<body>
+		<div class="navigationBar"><div w3-include-html="pageparts/navigationBar.htm"></div></div>
+		
+		<div class="carousel-container">	
+		<div class="carousel-slide"><img src="images/Stafford_Historical_Society_-_Stafford_Springs,_Connecticut_-_DSC04141.jpg"></div>
+		<div class="carousel-slide"><img src="images/Stafford_Springs_station_postcard.jpg"></div>
+		</div>
+		<div class="centerFlexbox"><span class="imgCarouselButton" id="prevBtn">Previous</span><span class="imgCarouselButton" id="nextBtn">Next</span></div>
+
+
+	<!-- Start of body -->
+	
+		<h1 class="textCenter">Efforts</h1>
+		<div class="centerFlexbox">
+		<p class="textCenterv2">Over the years, the Stafford Historical Society has spent considerable time in its efforts - both large and small - to collect, document, preserve, showcase, and celebrate the history of the Town of Stafford.  Some of the larger efforts over the years:</p>
+		<br></div>
+		
+		<div class="centerFlexbox">
+			<ul class="listBox">
+				<li><b>Historic Barns of Connecticut Survey - </b>The CT Trust for Historical Preservation has launched a special initiative to document the history of every barn in our town.  This unique effort is focused on Stafford and its surrounding towns (Ashford, Eastford, Chaplin, Union, and Willington).  Volunteers are needed to assist with this effort.  Please contact the <a target="_blank" href="https://connecticutbarns.org/">CT Trust for Historical Preservation</a> or the <a href="contactHistorical.html">Stafford Historical Society</a> to participate in this effort.</li>
+				<li><b>Postcards of Stafford - </b>This hour-long video, narrated by former Museum Curator Isabel Zabilansky, shows and discusses some of Stafford's very popular vintage postcard images.  Available for $22 ea. at the Museum (VHS/DVD).</li>
+				<li><b>Spring St. Museum - </b>Our current home, the Museum at 5 Spring St. was formerly the town Library, and required considerable work to become a suitable museum space.  Come see for yourself - our all-volunteer crew come through with an amazing facility, loaded with treasured pieces of Stafford's past.  Individual cataloging and documentation of the Society's extensive collection continue on a regular basis.  Museum tours and research hours are available during any Open House, most regular meetings, or by appointment.  <a href="membership.html">Volunteers are always needed for museum activities.</a></li>
+				<li><b>Memorial Hall Dedication - 100th Anniversary Celebration - </b>This 2-day event held on the grounds of Memorial Hall, in Stafford Hollow, commemorated the original 1902 dedication ceremony, when the Universalist Society gave the historic building to the town for its use.  Complete with Historical Society members in hand-made vintage dress, both evenings were capped off with a re-creation of the play Rip Van Winkle, redeveloped by the local Downstairs Production Co. acting troupe, and held on the same stage as the original.</li>
+				<li><b>Patten District One-Room Schoolhouse - </b>Now located in Heritage Park, at the south end of historic Stafford Street, this late-1700's one-room schoolhouse - the last known remaining example in Stafford - was originally located far away in the northwest corner of town on Worthington Ridge Road.  Converted to a residence and then suffering decades of neglect and abuse, it was doomed to demolition until a dedicated group of preservationists came to the rescue.  Carefully deconstructed and preserved, the structure was taken piece by piece down to Heritage Park, individual timbers were repaired or replaced with period duplicates, and the entire post-and-beam structure was re-built using all authentic construction methods and materials.</li>
+			</ul>
+		</div>
+	
+	<!-- End of body -->
+	<div w3-include-html="pageparts/bottomBar.htm"></div>
+	<script>includeHTML();</script>	
+	<script>
+	
+	document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentSlide = getRandomSlideIndex();
+
+    // Function to generate a random slide index
+    function getRandomSlideIndex() {
+        return Math.floor(Math.random() * slides.length);
+    }
+
+    // Function to show the current slide
+    function showSlide() {
+        slides.forEach((slide, index) => {
+            if (index === currentSlide) {
+                slide.style.display = 'block';
+            } else {
+                slide.style.display = 'none';
+            }
+        });
+    }
+
+    // Function to show the next slide
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide();
+    }
+
+    // Function to show the previous slide
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide();
+    }
+
+    // Initialize the carousel by showing a random slide
+    showSlide();
+
+    // Event listeners for the previous and next buttons
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+});
+
+	</script>
+	</body>
+</html>
