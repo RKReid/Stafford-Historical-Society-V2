@@ -1,0 +1,80 @@
+<html>
+
+	<head>
+		<div w3-include-html="pageparts/headcode.htm"></div>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="main.css">
+		<title>Stafford Historical Society</title>
+	</head>
+	<script src="pageparts/includeHTML.js"></script>
+	<body>
+		<div class="navigationBar"><div w3-include-html="pageparts/navigationBar.htm"></div></div>
+		
+		<div class="carousel-container">	
+		<div class="carousel-slide"><img src="images/Stafford_Historical_Society_-_Stafford_Springs,_Connecticut_-_DSC04141.jpg"></div>
+		<div class="carousel-slide"><img src="images/Stafford_Springs_station_postcard.jpg"></div>
+		</div>
+		<div class="centerFlexbox"><span class="imgCarouselButton" id="prevBtn">Previous</span><span class="imgCarouselButton" id="nextBtn">Next</span></div>
+
+
+	<!-- Start of body -->
+	
+		<h1 class="textCenter">About the Stafford Historical Society</h1>
+		<div class="centerFlexbox">
+		<p class="textCenterv2">The Stafford Historical Society was founded in 1962 by a group of local citizens who were interested in preserving Stafford's history. The following year the Society became incorporated as a non-stock corporation and since then have qualified for non-profit 501(c)3 status.<br><br>Since it's founding, the mission of the Society has been to collect, preserve and exhibit all materials relating to the history of the Town of Stafford for the education and enjoyment of present and future generations. A diverse collection of historical artifacts from Stafford are on display at the Museum. The Society also maintains a library with research facilities on local topics. Lecture, slide, and/or PowerPoint presentations on various topics of historical interest are frequently provided for local organizations.  Frequently these presentations include authentic historical artifacts displayed from the presenter's private collection.<br><br>The Stafford Historical Society is an active organization.  In 1982 the Society produced a one-hour, narrated video, "Old Postcards and Photos of Stafford", showing over 300 local scenes. This video received an Award of merit from the Connecticut League of Historical Societies for its "outstanding contribution to the development of interest in local history." It has been available in both VHS and DVD format.<br><br>In 1987, the Society was primarily responsible for the identification and establishment of The Stafford Hollow Historic District, which is listed on the National Register of Historic Places.<br><br>The historic building which serves as our Museum, located at 5 Spring Street, Stafford Springs, was recently listed on the Connecticut Register of Historic Places, as was the adjacent Stafford Springs Mineral Spring.  This building previously served as the town Library, and prior to that served as the probate judge's office, offices of the Converse Woolen Co, and as the bottling house of the Stafford Mineral Waters Co. dating back to its construction in 1885.</p>
+		<br></div>
+		<div class="centerFlexbox"><img style="margin-top: 4em;" src="images/Historic Postcard - Grace Episcopal Church and [former] Public Library.jpg"></div>
+		<br><p class="centerText">The Stafford Historical Society, Inc.<br>5 Spring Street<br>Stafford Springs, CT 06076</p>
+		
+
+	
+	<!-- End of body -->
+	<div w3-include-html="pageparts/bottomBar.htm"></div>
+	<script>includeHTML();</script>	
+	<script>
+	
+	document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentSlide = getRandomSlideIndex();
+
+    // Function to generate a random slide index
+    function getRandomSlideIndex() {
+        return Math.floor(Math.random() * slides.length);
+    }
+
+    // Function to show the current slide
+    function showSlide() {
+        slides.forEach((slide, index) => {
+            if (index === currentSlide) {
+                slide.style.display = 'block';
+            } else {
+                slide.style.display = 'none';
+            }
+        });
+    }
+
+    // Function to show the next slide
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide();
+    }
+
+    // Function to show the previous slide
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide();
+    }
+
+    // Initialize the carousel by showing a random slide
+    showSlide();
+
+    // Event listeners for the previous and next buttons
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+});
+
+	</script>
+	</body>
+</html>
